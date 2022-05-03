@@ -1,5 +1,5 @@
 class WalletModel {
-  final int amount;
+  final double amount;
 
   WalletModel({required this.amount});
 

@@ -85,8 +85,8 @@ class AuthRepo {
             options: Options(headers: {"token": token}));
         print(response.statusCode);
         if (response.statusCode == 200) {
-          UserModel wallet = UserModel.fromJsonForGetUser(map: response.data);
-          return wallet;
+          UserModel user = UserModel.fromJsonForGetUser(map: response.data);
+          return user;
         } else {
           return Future.error("Failed trying to get user!");
         }

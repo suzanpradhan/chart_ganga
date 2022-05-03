@@ -71,7 +71,7 @@ class _FeedCardState extends State<FeedCard> {
                 onTap: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (BuildContext context) {
-                    return PostDetailScreen(postModel: postModel);
+                    return PostDetailScreen2(postModel: postModel);
                   }));
                 },
                 child: Container(

@@ -33,6 +33,6 @@ class UserModel {
   }
 
   factory UserModel.fromJsonForGetUser({required Map<String, dynamic> map}) {
-    return UserModel(username: map["username"]);
+    return UserModel(avatar: map["avatar"], username: map["username"]);
   }
 }

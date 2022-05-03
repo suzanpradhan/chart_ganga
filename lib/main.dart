@@ -9,10 +9,15 @@ import 'package:chart_ganga/modules/checkout/screens/payment_completed.dart';
 import 'package:chart_ganga/modules/new_post/screens/add_new_post.dart';
 import 'package:chart_ganga/modules/notifications/screens/notification_screen.dart';
 import 'package:chart_ganga/modules/posts/screens/post_detail_screen.dart';
+import 'package:chart_ganga/modules/profile/screens/edit_profile_screen.dart';
 import 'package:chart_ganga/modules/profile/screens/profile_screen.dart';
 import 'package:chart_ganga/modules/search/screens/search_screen.dart';
+import 'package:chart_ganga/modules/settings/screens/about_us_screen.dart';
 import 'package:chart_ganga/modules/settings/screens/setting_screen.dart';
+import 'package:chart_ganga/modules/settings/screens/terms_and_conditions_screen.dart';
 import 'package:flutter/material.dart';
+
+import 'modules/settings/screens/privacy_policy_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -39,7 +44,11 @@ class MyApp extends StatelessWidget {
         PAYMENT_ROUTE: (context) => PaymentScreen(),
         PAYMENT_COMPLETED_ROUTE: (context) => PaymentCompleted(),
         LOGIN_ROUTE: (context) => LoginScreen(),
-        REGISTER_ROUTE: (context) => RegisterScreen()
+        REGISTER_ROUTE: (context) => RegisterScreen(),
+        PROFILE_EDIT_SCREEN: (context) => EditProfileScreen(),
+        ABOUT_SCREEN: (context) => AboutUsScreen(),
+        TERMS_AND_CONDITIONS: (context) => TermsAndConditionsScreen(),
+        PRIVACY_POLICY: (context) => PrivacyPolicyScreen()
       },
     );
   }

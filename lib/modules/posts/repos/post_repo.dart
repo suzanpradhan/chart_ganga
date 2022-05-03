@@ -17,9 +17,9 @@ class PostRepo {
 
       var response = await dio.get(ApiPaths.getAllPostsUrl,
           options: Options(headers: {"token": token}));
-      print(response.statusCode);
       if (response.statusCode == 200) {
-        List<PostModel> dataMappedToModel = (response.data["results"] as List)
+        print(response.data);
+        List<PostModel> dataMappedToModel = (response.data as List)
             .map((data) => PostModel.fromJson(map: data))
             .toList();
         return dataMappedToModel;
@@ -27,7 +27,6 @@ class PostRepo {
         return Future.error("Failed to load new feeds.");
       }
     } catch (e) {
-      print(e.toString());
       return Future.error('Failed to load new feeds.');
     }
   }
@@ -44,7 +43,7 @@ class PostRepo {
           options: Options(headers: {"token": token}));
       print(response.statusCode);
       if (response.statusCode == 200) {
-        List<PostModel> dataMappedToModel = (response.data["results"] as List)
+        List<PostModel> dataMappedToModel = (response.data as List)
             .map((data) => PostModel.fromJson(map: data))
             .toList();
         return dataMappedToModel;
@@ -95,7 +94,7 @@ class PostRepo {
           options: Options(headers: {"token": token}));
       print(response.statusCode);
       if (response.statusCode == 200) {
-        List<PostModel> dataMappedToModel = (response.data["results"] as List)
+        List<PostModel> dataMappedToModel = (response.data as List)
             .map((data) => PostModel.fromJson(map: data))
             .toList();
         return dataMappedToModel;
@@ -119,10 +118,9 @@ class PostRepo {
           options: Options(headers: {"token": token}));
       print(response.statusCode);
       if (response.statusCode == 200) {
-        List<BookmarkModel> dataMappedToModel =
-            (response.data["results"] as List)
-                .map((data) => BookmarkModel.fromJson(map: data))
-                .toList();
+        List<BookmarkModel> dataMappedToModel = (response.data as List)
+            .map((data) => BookmarkModel.fromJson(map: data))
+            .toList();
         return dataMappedToModel;
       } else {
         return Future.error("Failed to load my posts.");
@@ -145,7 +143,7 @@ class PostRepo {
           options: Options(headers: {"token": token}));
       print(response.statusCode);
       if (response.statusCode == 200) {
-        List<PostModel> dataMappedToModel = (response.data["results"] as List)
+        List<PostModel> dataMappedToModel = (response.data as List)
             .map((data) => PostModel.fromJson(map: data))
             .toList();
         return dataMappedToModel;

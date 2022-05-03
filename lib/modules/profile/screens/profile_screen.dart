@@ -1,4 +1,5 @@
 import 'package:chart_ganga/configs/app_routes.dart';
+import 'package:chart_ganga/constants/api_paths.dart';
 import 'package:chart_ganga/constants/custom_colors.dart';
 import 'package:chart_ganga/modules/home/widgets/feed_card.dart';
 import 'package:chart_ganga/modules/home/widgets/shimmer_feed_card.dart';
@@ -78,15 +79,28 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Container(
-                                  width: 80,
-                                  height: 80,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(8),
-                                      image: DecorationImage(
-                                          fit: BoxFit.cover,
-                                          image: AssetImage(
-                                              "assets/images/profile_image.png"))),
+                                BlocBuilder<GetuserBloc, GetuserState>(
+                                  builder: (context, state) {
+                                    return Container(
+                                      width: 80,
+                                      height: 80,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(8),
+                                          image: ((state
+                                                      is GetUserSuccessState) &&
+                                                  (state.user.avatar != null))
+                                              ? DecorationImage(
+                                                  fit: BoxFit.cover,
+                                                  image: NetworkImage(
+                                                      ApiPaths.baseUrl +
+                                                          state.user.avatar!))
+                                              : DecorationImage(
+                                                  fit: BoxFit.cover,
+                                                  image: AssetImage(
+                                                      "assets/images/profile_image.png"))),
+                                    );
+                                  },
                                 ),
                                 SizedBox(
                                   width: 10,

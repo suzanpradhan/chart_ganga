@@ -20,10 +20,9 @@ class NotificationRepo {
             options: Options(headers: {"token": token}));
         print(response.statusCode);
         if (response.statusCode == 200) {
-          List<NotificationModel> dataMappedToModel =
-              (response.data["results"] as List)
-                  .map((data) => NotificationModel.fromJson(map: data))
-                  .toList();
+          List<NotificationModel> dataMappedToModel = (response.data as List)
+              .map((data) => NotificationModel.fromJson(map: data))
+              .toList();
           return dataMappedToModel;
         } else {
           return Future.error("Failed to load notifications.");

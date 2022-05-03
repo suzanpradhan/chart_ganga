@@ -31,7 +31,7 @@ class PaymentCompleted extends StatelessWidget {
               height: 14,
             ),
             Text(
-              "You have successfully withdrawn \$100.34.",
+              "Your withdrawl is in progress. It might take upto 2-3 business days.",
               style: Theme.of(context).textTheme.bodyText1,
             ),
             SizedBox(
